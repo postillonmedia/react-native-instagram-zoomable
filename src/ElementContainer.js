@@ -142,7 +142,7 @@ export class ElementContainer extends PureComponent {
 
         gesturePosition.setOffset({
             x: 0,
-            y: selectedMeasurement.y,
+            y: (selectedMeasurement && selectedMeasurement.y) || 0,
         });
 
         Animated.timing(this._opacity, {
