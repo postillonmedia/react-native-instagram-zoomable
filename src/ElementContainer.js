@@ -148,6 +148,7 @@ export class ElementContainer extends PureComponent {
         Animated.timing(this._opacity, {
             toValue: 0,
             duration: 200,
+            userNativeDriver: true
         }).start();
     };
 
@@ -224,7 +225,7 @@ export class ElementContainer extends PureComponent {
     async _measureSelected() {
         let parentMeasurement = await new Promise((resolve, reject) => {
             try {
-                this._parent._component.measureInWindow((winX, winY, winWidth, winHeight) => {
+                this._parent.measureInWindow((winX, winY, winWidth, winHeight) => {
                     resolve({
                         x: winX,
                         y: winY,
